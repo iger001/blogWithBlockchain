@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <div align="center" style="background-color: #3f3f3f; vertical-align: middle;font-size: 40px;">
+		<img width="200" src="{{ url_for('static', filename='logo.jpg') }}">
+		<b style="color:white;"> &nbsp;&nbsp;&nbsp; {{ title }}</b>
+	</div>
+    <hr>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </body>
+</html>
